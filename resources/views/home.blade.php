@@ -38,9 +38,39 @@
     </nav>
     {{-- End of Navbar --}}
 
-    <h1>Ini halaman Home</h1>
+    <div class="container mb-5">
+        <h1>Ini halaman Home</h1>
+        <p>Selamat Datang, {{ $name }}</p>
 
-    <p>Selamat daang, {{ $name }}</p>
+        {{-- @if ($role == 'Admin')
+            <a href="">Ke Halaman Admin</a>
+        @elseif ($role == 'Staf')
+            <a href="">Ke Halaman Gudang</a>
+        @endif --}}
+
+        {{-- @switch($role)
+            @case('Admin')
+                <a href="">Ke Halaman Admin</a>
+            @break
+
+            @case('Staf')
+                <a href="">Ke Halaman Gudang</a>
+            @break
+
+            @default
+        @endswitch --}}
+
+        <table class="table">
+            <tr>
+                <th>Nama</th>
+            </tr>
+            @foreach ($barang as $data)
+            <tr>
+                <td> {{ $data }} </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
 
     {{-- JS CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

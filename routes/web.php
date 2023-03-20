@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home', ['name' => 'Aryakkk']);
+    return view('home', [
+        'name' => 'Aryakkk',
+        'role' => 'Admin',
+        'barang' => ['pensil', 'penghapus', 'penggaris', 'bolpoin', 'stipo'],
+    ]);
 });
