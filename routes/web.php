@@ -24,3 +24,7 @@ Route::get('/home', function () {
         'barang' => ['pensil', 'penghapus', 'penggaris', 'bolpoin', 'stipo'],
     ]);
 });
+
+Route::get('/about', function () {
+    return view('about');
+});
