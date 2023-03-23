@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->unsignedBigInteger('class_id')->required()->after('nis');
-            $table->foreign('class_id')->references('id')->on('users');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('restrict');
         });
     }
 
@@ -27,6 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
+            $table->dropForeign(['class_id']);
             $table->dropColumn('class_id');
         });
     }
